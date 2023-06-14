@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan jquery 2</title>
+</head>
+<body>
+    <h3>JUDUL</h3>
+    
+    <div>
+        <button type="button" class="c1">persegi</button>
+        <button type="button" class="c2">segitiga</button>
+    </div>
+    <div id="persegi">
+        <div>
+            nilai panjang
+            <input type="number"class="pj">
+        </div>
+        <div>
+            nilai lebar
+            <input type="number" class="lb">
+        </div>
+            <button type="button" class="hitungpersegi">hitung luas persegi</button>
+        </div>
+    </div>
+    <div id="segitiga">
+        <div>
+            nilai alas
+            <input type="number"class="al">
+        </div>
+        <div>
+            nilai tinggi
+            <input type="number" class="tg">
+        </div>
+            <button type="button" class="hitungsegitiga">hitung luas segitiga</button>
+        </div>
+    </div>
+    <div id="hasil"></div>
+
+    <script src="jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#persegi").hide();
+            $("#segitiga").hide();
+
+            $(".c1").click(function(){
+                $("h3").html("hitung luas persegi")
+                $("#segitiga").hide(1000)
+                $("#persegi").show(1000)
+                $("#hasil").html("")
+            })
+            $(".c2").click(function(){
+                $("h3").html("hitung luas segitiga")
+                $("#persegi").hide(1000)
+                $("#segitiga").show(1000)
+                $("#hasil").html("")
+            });
+            $(".hitungpersegi").click(function(){
+                //input
+                let p = $(".pj").val()
+                let l = $(".lb").val()
+
+                //proses
+                let lu = p * l
+
+                //output
+                let tx = "nilai luas dari persegi dengan panjang"+p
+                tx += " dan lebar"+l+" adalah: <br>"
+                tx +="luas = panjang x lebar<br>"
+                tx += "= "+p+"x"+l+"<br>"
+                tx += "= "+lu+"<br> jadi luasnya adalah "+lu
+
+                $("#hasil").html(tx)
+
+            });
+
+            $(".hitungsegitiga").click(function(){
+                //input
+                let a = $(".al").val()
+                let t = $(".tg").val()
+
+                //proses
+                let lu = a * t / 2;
+
+                //output
+                let tx = "nilai luas dari segitiga dengan alas"+a;
+                tx += " dan lebar"+t+" adalah: <br>"
+                tx +="luas = alas x tinggi<br>"
+                tx += "= "+a+"x"+t+"<br>"
+                tx += "= "+lu+"<br> jadi luasnya adalah "+lu;
+
+                $("#hasil").html(tx);
+
+        });
+
+    })
+    </script>
+</body>
+</html>
